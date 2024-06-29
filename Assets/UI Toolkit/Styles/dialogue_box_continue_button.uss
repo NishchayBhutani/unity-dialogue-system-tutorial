@@ -1,0 +1,6 @@
+.continue_button {
+}
+
+.continue_button:hover {
+    background-color: rgba(96, 89, 89, 0.5);
+}
