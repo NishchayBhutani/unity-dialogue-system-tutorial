@@ -44,7 +44,16 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        npcDialogue.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence) {
+        npcDialogue.text = "";
+        foreach(char letter in sentence.ToCharArray()) {
+            npcDialogue.text += letter;
+            yield return null;
+        }
     }
 
     private void EndConversation()
